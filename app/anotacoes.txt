@@ -1,0 +1,9 @@
+# Configurações Padrão do projetos
+
+## Instalando Fonts do google 
+- expo install expo-font @expo-google-fonts/roboto
+
+## Bibliotecas
+// Se a font ainda não foi carregada, ele segura a tela de splash
+expo install expo-app-loading
+
