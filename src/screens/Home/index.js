@@ -61,7 +61,6 @@ export default () => {
       text = errorMsg;
     } else {
       text = JSON.stringify(location)
-      console.log(text);
     }
   }
 

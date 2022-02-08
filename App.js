@@ -30,7 +30,7 @@ export default () => {
 
   return (
     <UserContextProvider>
-      <StatusBar style="light" />
+      <StatusBar style="light" backgroundColor="#B10648" />
       <NavigationContainer>
         <MainStack />
       </NavigationContainer>

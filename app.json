@@ -1,10 +1,14 @@
 {
   "expo": {
-    "name": "app",
+    "name": "BarberLins",
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": [
@@ -27,12 +31,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lins.barberlins"
     },
     "android": {
+      "package": "com.lins.barberlins",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#B10648"
       }
     },
     "web": {

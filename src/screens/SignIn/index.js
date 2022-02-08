@@ -16,9 +16,8 @@ import SignInput from '../../components/SignInput';
 
 // Svgs
 import BarberLogo from '../../assets/barber.svg';
-import PersonIcon from '../../assets/person.svg';
 import EmailIcon from '../../assets/email.svg';
-import LookIcon from '../../assets/lock.svg';
+import LockIcon from '../../assets/lock.svg';
 
 export default () => {
 
@@ -26,15 +25,12 @@ export default () => {
 
   const navigation = useNavigation();
 
-  const [nameField, setNameField] = useState('');
   const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
   const handleSignClick = async () => {
-    if (nameField != '' && emailField != '' && passwordField != '') {
-      let response = await Api.signUp(nameField, emailField, passwordField);
-
-      console.log(response);
+    if (emailField != '' && passwordField != '') {
+      let response = await Api.signIn(emailField, passwordField);
 
       if (response.token) {
 
@@ -56,8 +52,9 @@ export default () => {
           alert('Error: ' + e);
         }
 
+
       } else {
-        alert('Error: ' + response.error);
+        alert('E-mail e/ou senha errados!');
       }
     } else {
       alert('Preencha os campos!');
@@ -66,7 +63,7 @@ export default () => {
 
   const handleMessageButtonClick = () => {
     navigation.reset({
-      routes: [{ name: 'SignIn' }]
+      routes: [{ name: 'SignUp' }]
     });
   }
 
@@ -77,19 +74,13 @@ export default () => {
 
       <C.InputArea>
         <SignInput
-          IconSvg={PersonIcon}
-          placeholder="Digite seu nome"
-          value={nameField}
-          onChangeText={(t) => setNameField(t)}
-        />
-        <SignInput
           IconSvg={EmailIcon}
           placeholder="Digite seu e-mail"
           value={emailField}
           onChangeText={(t) => setEmailField(t)}
         />
         <SignInput
-          IconSvg={LookIcon}
+          IconSvg={LockIcon}
           placeholder="Digite sua Senha"
           value={passwordField}
           onChangeText={(t) => setPasswordField(t)}
@@ -97,14 +88,14 @@ export default () => {
         />
 
         <C.CustomButton onPress={handleSignClick} >
-          <C.CustomButtonText>CADASTRAR</C.CustomButtonText>
+          <C.CustomButtonText>LOGIN</C.CustomButtonText>
         </C.CustomButton>
 
       </C.InputArea>
 
       <C.SingMessageButton onPress={handleMessageButtonClick}>
-        <C.SingMessageButtonText>Já possui uma conta?</C.SingMessageButtonText>
-        <C.SingMessageButtonTextBold>Faça login</C.SingMessageButtonTextBold>
+        <C.SingMessageButtonText>Ainda não possui uma conta?</C.SingMessageButtonText>
+        <C.SingMessageButtonTextBold>Cadastra-se</C.SingMessageButtonTextBold>
       </C.SingMessageButton>
 
     </C.Container >
